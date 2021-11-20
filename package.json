@@ -1,0 +1,19 @@
+{
+  "name": "calendar-homey-api",
+  "version": "1.0.0",
+  "description": "Express API to update stats in DB",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && jest"
+  },
+  "keywords": [
+    "express",
+    "api"
+  ],
+  "author": "Rune Moskvil Lyngås <rune.moskvil.lyngaas@vtfk.no> (https://github.com/runely)",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "27.3.1",
+    "standard": "16.0.4"
+  }
+}
