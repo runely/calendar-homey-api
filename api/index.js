@@ -1,11 +1,12 @@
 const { PORT } = require('../config')
 
 const { logger } = require('@vtfk/logger')
+const express = require('express')
 const authenticateToken = require('../lib/authentication')
 const hasData = require('../lib/hasData')
 const { updateSystem, updateOperations } = require('../lib/update-db')
 
-const app = require('express')()
+const app = express()
 app.use(express.json())
 
 app.get('/', (req, res) => {
