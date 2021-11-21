@@ -11,6 +11,12 @@
     "express",
     "api"
   ],
+  "repository": {
+    "url": "https://github.com/runely/calendar-homey-api"
+  },
+  "bugs": {
+    "url": "https://github.com/runely/calendar-homey-api/issues"
+  },
   "author": "Rune Moskvil Lyngås <rune.moskvil.lyngaas@vtfk.no> (https://github.com/runely)",
   "license": "MIT",
   "devDependencies": {
