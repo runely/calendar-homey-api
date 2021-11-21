@@ -3,7 +3,7 @@
   "builds": [
     {
       "src": "/README.md",
-      "use": "@vercel/md"
+      "use": "@now/md"
     },
     {
       "src": "/api/*.js",
