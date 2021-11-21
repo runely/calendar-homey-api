@@ -9,7 +9,7 @@ CONNECTION=mongodb+srv://<mongodbUsername>:<mongoDbPassword>@<serverAddress>?ret
 NAME=<mongoDbName>
 COLLECTION_SYSTEM=<mongoDb_system_collection>
 COLLECTION_OPERATIONS=<mongoDb_operations_collection>
-SEC=<json-web-token-secret>
+TOKEN_AUTH=<json-web-token-secret>
 ```
 
 ## Vercel

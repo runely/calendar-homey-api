@@ -1,24 +1,17 @@
-const { PORT } = require('../config')
-
 const { logger } = require('@vtfk/logger')
-const express = require('express')
-const authenticateToken = require('../lib/authentication')
+
+const withTokenAuth = require('../lib/with-token-auth')
 const hasData = require('../lib/hasData')
 const { updateSystem, updateOperations } = require('../lib/update-db')
 
-const app = express()
-app.use(express.json())
-
-app.get('/', (req, res) => {
-  res.send('Check out the readme please')
-})
-
-app.post('/update', authenticateToken, async (req, res) => {
+const update = async (req, res) => {
   if (!hasData(req.body)) {
     logger('error', ['index', 'Body missing'])
-    return res.status(400).json({
+    res.status(400)
+    res.json({
       error: 'Body missing'
     })
+    return
   }
 
   const { sys, ops } = req.body
@@ -29,11 +22,13 @@ app.post('/update', authenticateToken, async (req, res) => {
       result.system = { message: 'Updated' }
     } catch (error) {
       logger('error', ['index', 'system', error])
-      return res.status(500).json({
+      res.status(500)
+      res.json({
         system: {
           error: error.message
         }
       })
+      return
     }
   }
 
@@ -43,17 +38,17 @@ app.post('/update', authenticateToken, async (req, res) => {
       result.operations = { message: 'Updated' }
     } catch (error) {
       logger('error', ['index', 'operations', error])
-      return res.status(500).json({
+      res.status(500)
+      res.json({
         operations: {
           error: error.message
         }
       })
+      return
     }
   }
 
   res.json(result)
-})
+}
 
-app.listen(PORT, () => {
-  console.log(`Server listening at http://localhost:${PORT}`)
-})
+module.exports = (req, res) => withTokenAuth(req, res, update)

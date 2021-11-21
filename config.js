@@ -4,5 +4,5 @@ module.exports = {
   NAME: process.env.NAME,
   COLLECTION_SYSTEM: process.env.COLLECTION_SYSTEM,
   COLLECTION_OPERATIONS: process.env.COLLECTION_OPERATIONS,
-  SEC: process.env.SEC
+  TOKEN_AUTH: process.env.TOKEN_AUTH
 }
