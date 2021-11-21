@@ -9,7 +9,7 @@ const app = require('express')()
 app.use(express.json())
 
 app.get('/', (req, res) => {
-  res.send('Check out the readme')
+  res.send('Check out the readme please')
 })
 
 app.post('/update', authenticateToken, async (req, res) => {
