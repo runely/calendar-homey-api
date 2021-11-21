@@ -8,6 +8,10 @@ const { updateSystem, updateOperations } = require('../lib/update-db')
 const app = require('express')()
 app.use(express.json())
 
+app.get('/', (req, res) => {
+  res.send('Check out the readme')
+})
+
 app.post('/update', authenticateToken, async (req, res) => {
   if (!hasData(req.body)) {
     logger('error', ['index', 'Body missing'])
