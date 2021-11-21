@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "build": [
-    {
-      "src": "./api/index.js",
-      "use": "@vercel/node"
+  "functions": {
+    "api/index.js": {
+      "runtime": "vercel-node"
     }
-  ],
+  },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api" }
   ]
