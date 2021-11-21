@@ -1,13 +1,11 @@
-const { PORT } = require('./config')
+const { PORT } = require('../config')
 
 const { logger } = require('@vtfk/logger')
-const authenticateToken = require('./lib/authentication')
-const { updateSystem, updateOperations } = require('./lib/update-db')
+const authenticateToken = require('../lib/authentication')
+const hasData = require('../lib/hasData')
+const { updateSystem, updateOperations } = require('../lib/update-db')
 
-const hasData = data => data !== undefined && data !== null && (Array.isArray(data) ? data.length !== 0 : typeof data === 'object' ? Object.getOwnPropertyNames(data).length !== 0 : data)
-
-const express = require('express')
-const app = express()
+const app = require('express')()
 app.use(express.json())
 
 app.post('/update', authenticateToken, async (req, res) => {
@@ -51,6 +49,8 @@ app.post('/update', authenticateToken, async (req, res) => {
   res.json(result)
 })
 
-app.listen(PORT, () => {
+/* app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`)
-})
+}) */
+
+module.exports = app
