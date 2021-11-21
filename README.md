@@ -11,3 +11,8 @@ COLLECTION_SYSTEM=<mongoDb_system_collection>
 COLLECTION_OPERATIONS=<mongoDb_operations_collection>
 SEC=<json-web-token-secret>
 ```
+
+## Vercel
+
+1. Create an account with Vercel
+1. Clone done this repo
